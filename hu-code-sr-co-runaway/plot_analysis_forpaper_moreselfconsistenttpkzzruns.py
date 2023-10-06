@@ -189,10 +189,10 @@ def plot_failure_to_resolve_photolysis_rates():
         ax[pCO2_ind,0].plot(extended_mr_z_s_base[:,ind_co2], extended_p_centers*barye2bar, linewidth=2, linestyle=linestyles[1], color=colors[0])
         ax[pCO2_ind,0].plot(truncated_mr_z_s_base[:,ind_h2o], truncated_p_centers*barye2bar, linewidth=2, linestyle=linestyles[0], color=colors[1], label='H$_2$O')
         ax[pCO2_ind,0].plot(extended_mr_z_s_base[:,ind_h2o], extended_p_centers*barye2bar, linewidth=2, linestyle=linestyles[1], color=colors[1])          
-        ax[pCO2_ind,0].plot(truncated_mr_z_s_base[:,ind_co], truncated_p_centers*barye2bar, linewidth=2, linestyle=linestyles[0], color=colors[2], label='CO')
-        ax[pCO2_ind,0].plot(extended_mr_z_s_base[:,ind_co], extended_p_centers*barye2bar, linewidth=2, linestyle=linestyles[1], color=colors[2])
-        ax[pCO2_ind,0].plot(truncated_mr_z_s_base[:,ind_o2], truncated_p_centers*barye2bar, linewidth=2, linestyle=linestyles[0], color=colors[3], label='O$_2$')
-        ax[pCO2_ind,0].plot(extended_mr_z_s_base[:,ind_o2], extended_p_centers*barye2bar, linewidth=2, linestyle=linestyles[1], color=colors[3])  
+        ax[pCO2_ind,0].plot(truncated_mr_z_s_base[:,ind_co], truncated_p_centers*barye2bar, linewidth=3, linestyle=linestyles[0], color=colors[2], label='CO')
+        ax[pCO2_ind,0].plot(extended_mr_z_s_base[:,ind_co], extended_p_centers*barye2bar, linewidth=3, linestyle=linestyles[1], color=colors[2])
+        ax[pCO2_ind,0].plot(truncated_mr_z_s_base[:,ind_o2], truncated_p_centers*barye2bar, linewidth=3, linestyle=linestyles[0], color=colors[3], label='O$_2$')
+        ax[pCO2_ind,0].plot(extended_mr_z_s_base[:,ind_o2], extended_p_centers*barye2bar, linewidth=3, linestyle=linestyles[1], color=colors[3])  
         ax[pCO2_ind,0].plot(truncated_mr_z_s_base[:,ind_o3], truncated_p_centers*barye2bar, linewidth=2, linestyle=linestyles[0], color=colors[4], label='O$_3$')
         ax[pCO2_ind,0].plot(extended_mr_z_s_base[:,ind_o3], extended_p_centers*barye2bar, linewidth=2, linestyle=linestyles[1], color=colors[4])
         ax[pCO2_ind,0].plot(truncated_mr_z_s_base[:,ind_o], truncated_p_centers*barye2bar, linewidth=2, linestyle=linestyles[0], color=colors[5], label='O')
@@ -323,7 +323,7 @@ def plot_runaway_mechanics_pCO2():
     ax4=ax1.twinx()
     ax4.plot(0,0,linestyle=linestyles[0], color='black', label='$z_{max}|_{P=0.34~\mu bar}$')
     ax4.plot(0,0,linestyle=linestyles[1], color='black', label='$z_{max}=100$ km')
-    ax4.legend(loc='upper left', ncol=2, borderaxespad=0., fontsize=10, bbox_to_anchor=(0,1.2))
+    ax4.legend(loc='upper left', ncol=2, borderaxespad=0., fontsize=10, bbox_to_anchor=(0,1.2), frameon=False)
     ax4.set_yticks([])
     
     ##Plot concentration data
@@ -336,7 +336,7 @@ def plot_runaway_mechanics_pCO2():
     ax1.set_yscale('log')
     ax1.set_ylim([1E-2, 1E5])
     ax1.set_xscale('linear')
-    ax1.legend(loc='upper left', ncol=2, borderaxespad=0., fontsize=10) #,bbox_to_anchor=(-0.1,1.5)
+    ax1.legend(loc='upper left', ncol=2, borderaxespad=0., fontsize=10, frameon=False) #,bbox_to_anchor=(-0.1,1.5)
     # ax1.set_xlabel(r'pCO$_2$ (bar)', fontsize=14)  
     ax1.set_ylabel(r'Col.-Avg. Mixing Ratio'+'\n'+r'(Rel. to pCO$_2=0.01$ bar)', fontsize=12)
 
@@ -349,7 +349,7 @@ def plot_runaway_mechanics_pCO2():
         
     ax2.set_yscale('log')
     ax2.set_xscale('linear')
-    ax2.legend(loc='lower left', ncol=2, borderaxespad=0., fontsize=10)    
+    ax2.legend(loc='lower left', ncol=2, borderaxespad=0., fontsize=10, frameon=False)    
     # ax2.set_xlabel(r'pCO$_2$ (bar)', fontsize=14)  
     ax2.set_ylabel(r'Col.-Int. Reaction Rate'+'\n'+r'(Rel. to pCO$_2=0.01$ bar)', fontsize=12)    
     
@@ -363,7 +363,7 @@ def plot_runaway_mechanics_pCO2():
     ax3.set_yscale('log')
     ax3.set_xscale('linear')
     ax3.set_ylim([0.1, 10.0])
-    ax3.legend(loc='upper left', ncol=3, borderaxespad=0., fontsize=10)    
+    ax3.legend(loc='upper left', ncol=3, borderaxespad=0., fontsize=10, frameon=False)    
     ax3.set_xlabel(r'pCO$_2$ (bar)', fontsize=14)  
     ax3.set_ylabel(r'Col.-Int. Reaction Rate'+'\n'+r'(Rel. to pCO$_2=0.01$ bar)', fontsize=12)
     plt.subplots_adjust(hspace=0.2)
@@ -405,7 +405,7 @@ def plot_vertrxnrates_pCO2():
     fig1, ax=plt.subplots(len(pCO2_list),2, figsize=(8., 8.), sharex=False, sharey=True)
     markersizeval=5.
     linestyles=np.array(['-', '--', ':'])
-    linewidthval=2.5
+    linewidthval=2
     
     ###loop through pCO2.
     for pCO2_ind in range(0, len(pCO2_list)):
@@ -443,7 +443,7 @@ def plot_vertrxnrates_pCO2():
             ax[pCO2_ind, 0].plot(vertrate_rxn_trunc[rxn_pCO2_label], pcenters_rxn_trunc[str(pCO2)]*barye2bar, linewidth=linewidthval, linestyle=linestyles[0], color=oh_prod_reaction_colors_list[rxn_ind], label=oh_prod_reaction_name_list[rxn_ind])
             ax[pCO2_ind, 0].plot(vertrate_rxn_ext[rxn_pCO2_label], pcenters_rxn_ext[str(pCO2)]*barye2bar, linewidth=linewidthval, linestyle=linestyles[1], color=oh_prod_reaction_colors_list[rxn_ind])
         ax[pCO2_ind,0].set_xlim([1.e-6, 1.0e8])
-        ax[pCO2_ind,0].set_ylabel('Pressure (km)', fontsize=14)
+        ax[pCO2_ind,0].set_ylabel('Pressure (bar)', fontsize=14)
         ax[pCO2_ind,0].set_xscale('log')
         ax[pCO2_ind,0].tick_params(axis='both', which='major', labelsize=12)
         ax[pCO2_ind,0].set_title('pCO$_2$='+str(pCO2)+' bar', x=1.1, y=1.0)
@@ -452,6 +452,11 @@ def plot_vertrxnrates_pCO2():
         for rxn_ind in range(0, len(radical_reaction_label_list)):
             rxn_label=radical_reaction_label_list[rxn_ind]
             rxn_pCO2_label=rxn_label+str(pCO2)
+            
+            if rxn_label=='M34':
+                linewidthval=3
+            else:
+                linewidthval=2
             
             ax[pCO2_ind, 1].plot(vertrate_rxn_trunc[rxn_pCO2_label], pcenters_rxn_trunc[str(pCO2)]*barye2bar, linewidth=linewidthval, linestyle=linestyles[0], color=radical_reaction_colors_list[rxn_ind], label=radical_reaction_name_list[rxn_ind])
             ax[pCO2_ind,1].plot(vertrate_rxn_ext[rxn_pCO2_label], pcenters_rxn_ext[str(pCO2)]*barye2bar, linewidth=linewidthval, linestyle=linestyles[1], color=radical_reaction_colors_list[rxn_ind])
@@ -466,14 +471,15 @@ def plot_vertrxnrates_pCO2():
 
 
     #Configure plot
-    ax[0,0].set_ylim([1.0, 1.0E-9])
+    ax[0,0].set_ylim([1.0, 1.0E-8])
     ax[0,0].set_yscale('log')
     ax[-1,0].set_xlabel(r'Chemical Rate (cm$^{-3}$ s$^{-1}$)', fontsize=14) 
     ax[-1,1].set_xlabel(r'Chemical Rate (cm$^{-3}$ s$^{-1}$)', fontsize=14) 
-    ax[0,0].legend(loc='upper left', ncol=2, borderaxespad=0., fontsize=10, bbox_to_anchor=(-0.34, 1.35))
-    ax[0,1].legend(loc='upper left', ncol=2, borderaxespad=0., fontsize=10, bbox_to_anchor=(-0.13, 1.35))    
+    ax[0,0].legend(loc='upper left', ncol=2, borderaxespad=0, fontsize=10, bbox_to_anchor=(-0.34, 1.35))
+    ax[0,1].legend(loc='upper left', ncol=2, borderaxespad=0, fontsize=10, bbox_to_anchor=(-0.13, 1.35))  
+    plt.subplots_adjust(hspace = 0.1)
     plt.savefig('./Plots/plot_vertrxn_pCO2_changedtpkzz.pdf', orientation='portrait', format='pdf')
 
 plot_failure_to_resolve_photolysis_rates()
-plot_runaway_mechanics_pCO2()
-plot_vertrxnrates_pCO2()
+# plot_runaway_mechanics_pCO2()
+# plot_vertrxnrates_pCO2()
